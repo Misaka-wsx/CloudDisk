@@ -1,0 +1,25 @@
+<UI version="4.0" >
+ <class>cloud_diskClass</class>
+ <widget class="QWidget" name="cloud_diskClass" >
+  <property name="objectName" >
+   <string notr="true">cloud_diskClass</string>
+  </property>
+  <property name="geometry" >
+   <rect>
+	<x>0</x>
+	<y>0</y>
+	<width>600</width>
+	<height>400</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string>cloud_disk</string>
+  </property>
+ </widget>
+ <layoutDefault spacing="6" margin="11" />
+ <pixmapfunction></pixmapfunction>
+ <resources>
+   <include location="cloud_disk.qrc"/>
+ </resources>
+ <connections/>
+</UI>
