@@ -4,6 +4,7 @@ title::title(QWidget *parent)
 	: QWidget(parent)
 {
 	ui.setupUi(this);
+	m_parent = parent;
 }
 
 title::~title()
@@ -15,7 +16,7 @@ void title::mouseMoveEvent(QMouseEvent* event)
 	if (event->buttons() & Qt::LeftButton)
 	{
 		//move 
-		move(event->globalPos() - m_point);
+		m_parent->move(event->globalPos() - m_point);
 	}
 }
 
@@ -25,6 +26,6 @@ void title::mousePressEvent(QMouseEvent* event)
 	if (event->button() == Qt::LeftButton)
 	{
 		//Çó²îÖµ
-		m_point = event->globalPos() - this->geometry().topLeft();
+		m_point = event->globalPos() - m_parent->geometry().topLeft();
 	}
 }

@@ -14,6 +14,7 @@ public:
 private:
 	Ui::title ui;
 	QPoint m_point; //鼠标当前点-窗口左上点
+	QWidget* m_parent;
 protected:
 	//移动窗口
 	void mouseMoveEvent(QMouseEvent* event);
