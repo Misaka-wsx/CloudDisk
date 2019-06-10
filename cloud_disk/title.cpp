@@ -1,10 +1,22 @@
 #include "title.h"
 #include <QMouseEvent>
-title::title(QWidget *parent)
+title::title(QWidget* parent)
 	: QWidget(parent)
 {
 	ui.setupUi(this);
 	m_parent = parent;
+	connect(ui.button_set, &QToolButton::clicked, [=]() {
+
+		emit show_set_page();
+		});
+	connect(ui.button_min, &QToolButton::clicked, [=]() {
+
+		m_parent->showMinimized();
+		});
+	connect(ui.button_close, &QToolButton::clicked, [=]() {
+
+		emit close_window();
+		});
 }
 
 title::~title()

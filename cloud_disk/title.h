@@ -19,8 +19,9 @@ protected:
 	//ÒÆ¶¯´°¿Ú
 	void mouseMoveEvent(QMouseEvent* event);
 	void mousePressEvent(QMouseEvent* event);
-	//void show_set_page();
+signals:
+	void show_set_page();
 
-	//void minilize();
+	void close_window();
 
 };
