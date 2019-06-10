@@ -13,4 +13,13 @@ public:
 
 private:
 	Ui::title ui;
+	QPoint m_point; //鼠标当前点-窗口左上点
+protected:
+	//移动窗口
+	void mouseMoveEvent(QMouseEvent* event);
+	void mousePressEvent(QMouseEvent* event);
+	//void show_set_page();
+
+	//void minilize();
+
 };
