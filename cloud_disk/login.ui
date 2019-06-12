@@ -16,14 +16,14 @@
   <widget class="QStackedWidget" name="main_text">
    <property name="geometry">
     <rect>
-     <x>130</x>
-     <y>133</y>
-     <width>411</width>
-     <height>304</height>
+     <x>100</x>
+     <y>80</y>
+     <width>431</width>
+     <height>331</height>
     </rect>
    </property>
    <property name="currentIndex">
-    <number>2</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="login_page">
     <layout class="QVBoxLayout" name="verticalLayout">
@@ -191,7 +191,7 @@
     <widget class="QLabel" name="label_15">
      <property name="geometry">
       <rect>
-       <x>90</x>
+       <x>140</x>
        <y>10</y>
        <width>151</width>
        <height>51</height>
@@ -206,36 +206,10 @@
       <string>用户注册</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="back_main_2">
-     <property name="geometry">
-      <rect>
-       <x>80</x>
-       <y>260</y>
-       <width>75</width>
-       <height>23</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>返回</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="reg_btn_2">
-     <property name="geometry">
-      <rect>
-       <x>200</x>
-       <y>260</y>
-       <width>75</width>
-       <height>23</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>注册</string>
-     </property>
-    </widget>
     <widget class="QWidget" name="widget_7" native="true">
      <property name="geometry">
       <rect>
-       <x>60</x>
+       <x>110</x>
        <y>60</y>
        <width>211</width>
        <height>168</height>
@@ -309,6 +283,45 @@
       </item>
       <item row="5" column="1">
        <widget class="QLineEdit" name="email_2"/>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="layoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>120</x>
+       <y>250</y>
+       <width>204</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <item>
+       <widget class="QPushButton" name="reg_btn_2">
+        <property name="text">
+         <string>注册</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_4">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="back_main_2">
+        <property name="text">
+         <string>返回</string>
+        </property>
+       </widget>
       </item>
      </layout>
     </widget>

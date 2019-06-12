@@ -60,8 +60,6 @@ public:
     QSpacerItem *verticalSpacer_3;
     QWidget *reg_page;
     QLabel *label_15;
-    QPushButton *back_main_2;
-    QPushButton *reg_btn_2;
     QWidget *widget_7;
     QGridLayout *gridLayout_3;
     QLabel *label_16;
@@ -76,6 +74,11 @@ public:
     QLineEdit *phone_2;
     QLabel *label_21;
     QLineEdit *email_2;
+    QWidget *layoutWidget;
+    QHBoxLayout *horizontalLayout_3;
+    QPushButton *reg_btn_2;
+    QSpacerItem *horizontalSpacer_4;
+    QPushButton *back_main_2;
     QWidget *set_page;
     QLabel *label_48;
     QWidget *widget_8;
@@ -96,7 +99,7 @@ public:
         login->resize(649, 515);
         main_text = new QStackedWidget(login);
         main_text->setObjectName(QString::fromUtf8("main_text"));
-        main_text->setGeometry(QRect(130, 133, 411, 304));
+        main_text->setGeometry(QRect(100, 80, 431, 331));
         login_page = new QWidget();
         login_page->setObjectName(QString::fromUtf8("login_page"));
         verticalLayout = new QVBoxLayout(login_page);
@@ -212,19 +215,13 @@ public:
         reg_page->setObjectName(QString::fromUtf8("reg_page"));
         label_15 = new QLabel(reg_page);
         label_15->setObjectName(QString::fromUtf8("label_15"));
-        label_15->setGeometry(QRect(90, 10, 151, 51));
+        label_15->setGeometry(QRect(140, 10, 151, 51));
         QFont font;
         font.setPointSize(26);
         label_15->setFont(font);
-        back_main_2 = new QPushButton(reg_page);
-        back_main_2->setObjectName(QString::fromUtf8("back_main_2"));
-        back_main_2->setGeometry(QRect(80, 260, 75, 23));
-        reg_btn_2 = new QPushButton(reg_page);
-        reg_btn_2->setObjectName(QString::fromUtf8("reg_btn_2"));
-        reg_btn_2->setGeometry(QRect(200, 260, 75, 23));
         widget_7 = new QWidget(reg_page);
         widget_7->setObjectName(QString::fromUtf8("widget_7"));
-        widget_7->setGeometry(QRect(60, 60, 211, 168));
+        widget_7->setGeometry(QRect(110, 60, 211, 168));
         gridLayout_3 = new QGridLayout(widget_7);
         gridLayout_3->setObjectName(QString::fromUtf8("gridLayout_3"));
         label_16 = new QLabel(widget_7);
@@ -289,6 +286,26 @@ public:
 
         gridLayout_3->addWidget(email_2, 5, 1, 1, 1);
 
+        layoutWidget = new QWidget(reg_page);
+        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
+        layoutWidget->setGeometry(QRect(120, 250, 204, 25));
+        horizontalLayout_3 = new QHBoxLayout(layoutWidget);
+        horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
+        horizontalLayout_3->setContentsMargins(0, 0, 0, 0);
+        reg_btn_2 = new QPushButton(layoutWidget);
+        reg_btn_2->setObjectName(QString::fromUtf8("reg_btn_2"));
+
+        horizontalLayout_3->addWidget(reg_btn_2);
+
+        horizontalSpacer_4 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_3->addItem(horizontalSpacer_4);
+
+        back_main_2 = new QPushButton(layoutWidget);
+        back_main_2->setObjectName(QString::fromUtf8("back_main_2"));
+
+        horizontalLayout_3->addWidget(back_main_2);
+
         main_text->addWidget(reg_page);
         set_page = new QWidget();
         set_page->setObjectName(QString::fromUtf8("set_page"));
@@ -338,7 +355,7 @@ public:
 
         retranslateUi(login);
 
-        main_text->setCurrentIndex(2);
+        main_text->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(login);
@@ -354,14 +371,14 @@ public:
         register_2->setText(QApplication::translate("login", "\346\262\241\346\234\211\350\264\246\345\217\267\357\274\237\347\253\213\345\215\263\346\263\250\345\206\214", nullptr));
         enter->setText(QApplication::translate("login", "\347\231\273\345\275\225", nullptr));
         label_15->setText(QApplication::translate("login", "\347\224\250\346\210\267\346\263\250\345\206\214", nullptr));
-        back_main_2->setText(QApplication::translate("login", "\350\277\224\345\233\236", nullptr));
-        reg_btn_2->setText(QApplication::translate("login", "\346\263\250\345\206\214", nullptr));
         label_16->setText(QApplication::translate("login", "\347\224\250\346\210\267\345\220\215:", nullptr));
         label_17->setText(QApplication::translate("login", "\346\230\265\347\247\260:", nullptr));
         label_18->setText(QApplication::translate("login", "\345\257\206\347\240\201:", nullptr));
         label_19->setText(QApplication::translate("login", "\347\241\256\350\256\244\345\257\206\347\240\201:", nullptr));
         label_20->setText(QApplication::translate("login", "\346\211\213\346\234\272:", nullptr));
         label_21->setText(QApplication::translate("login", "\351\202\256\347\256\261:", nullptr));
+        reg_btn_2->setText(QApplication::translate("login", "\346\263\250\345\206\214", nullptr));
+        back_main_2->setText(QApplication::translate("login", "\350\277\224\345\233\236", nullptr));
         label_48->setText(QApplication::translate("login", "\346\234\215\345\212\241\345\231\250\350\256\276\347\275\256", nullptr));
         label_49->setText(QApplication::translate("login", "\346\234\215\345\212\241\345\231\250\345\234\260\345\235\200:", nullptr));
         host_ip_4->setText(QApplication::translate("login", "192.168.58.133", nullptr));

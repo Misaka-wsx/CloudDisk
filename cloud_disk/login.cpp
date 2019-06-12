@@ -36,3 +36,8 @@ void login::paintEvent(QPaintEvent* event)
 	QPixmap pximap(":/image/Resources/image/images/login2.jpg");
 	p.drawPixmap(0,0,this->width(),this->height(),pximap);
 }
+
+void login::on_register_2_clicked()
+{
+	ui.main_text->setCurrentWidget(ui.reg_page);
+}
