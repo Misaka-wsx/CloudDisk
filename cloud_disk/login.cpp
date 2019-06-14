@@ -86,9 +86,18 @@ void login::on_reg_register_clicked()
         QMessageBox::critical(this,QString::fromLocal8Bit("昵称错误"),QString::fromLocal8Bit("昵称命名不符合规则"));
         return;
     }
+    if(ui.reg_password->text().isEmpty()||ui.reg_password_enter->text().isEmpty())
+    {
+        QMessageBox::warning(this,QString::fromLocal8Bit("密码必须填写"),QString::fromLocal8Bit("密码为空"))
+    }
     if(!regPasswd.exactMatch(REG_PASSWD))
     {
         QMessageBox::critical(this,QString::fromLocal8Bit("密码错误"),QString::fromLocal8Bit("密码不符合规则"));
+        return;
+    }
+    if(password!=password_1)
+    {
+        QMessageBox::critical(this,QString::fromLocal8Bit("密码错误"),QString::fromLocal8Bit("两次密码输入不一致"));
         return;
     }
     if(!regEmail.exactMatch(REG_EMAIL))
@@ -99,11 +108,6 @@ void login::on_reg_register_clicked()
     if(!regPhone.exactMatch(REG_PHONE))
     {
         QMessageBox::critical(this,QString::fromLocal8Bit("电话错误"),QString::fromLocal8Bit("电话不符合规则"));
-        return;
-    }
-    if(password!=password_1)
-    {
-        QMessageBox::critical(this,QString::fromLocal8Bit("密码错误"),QString::fromLocal8Bit("两次密码输入不一致"));
         return;
     }
     //密码使用md5加密
