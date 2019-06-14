@@ -1,3 +1,4 @@
+#pragma execution_character_set("utf-8")
 #include "login.h"
 #include <QPainter>
 #include <QMessageBox>
@@ -77,32 +78,32 @@ void login::on_reg_register_clicked()
     //验证正则
     if(!regName.exactMatch(userName))
     {
-        QMessageBox::critical(this,"用户名错误","用户名命名不符合规则");
+        QMessageBox::critical(this,QString::fromLocal8Bit("用户名错误"),QString::fromLocal8Bit("用户名命名不符合规则"));
         return;
     }
     if(!regName.exactMatch(nickName))
     {
-        QMessageBox::critical(this,"昵称错误","昵称命名不符合规则");
+        QMessageBox::critical(this,QString::fromLocal8Bit("昵称错误"),QString::fromLocal8Bit("昵称命名不符合规则"));
         return;
     }
     if(!regPasswd.exactMatch(REG_PASSWD))
     {
-        QMessageBox::critical(this,"密码错误","密码不符合规则");
+        QMessageBox::critical(this,QString::fromLocal8Bit("密码错误"),QString::fromLocal8Bit("密码不符合规则"));
         return;
     }
     if(!regEmail.exactMatch(REG_EMAIL))
     {
-        QMessageBox::critical(this,"邮箱错误","邮箱不符合规则");
+        QMessageBox::critical(this,QString::fromLocal8Bit("邮箱错误"),QString::fromLocal8Bit("邮箱不符合规则"));
         return;
     }
     if(!regPhone.exactMatch(REG_PHONE))
     {
-        QMessageBox::critical(this,"电话错误","电话不符合规则");
+        QMessageBox::critical(this,QString::fromLocal8Bit("电话错误"),QString::fromLocal8Bit("电话不符合规则"));
         return;
     }
     if(password!=password_1)
     {
-        QMessageBox::critical(this,"密码错误","两次密码输入不一致");
+        QMessageBox::critical(this,QString::fromLocal8Bit("密码错误"),QString::fromLocal8Bit("两次密码输入不一致"));
         return;
     }
     //密码使用md5加密
@@ -144,7 +145,7 @@ void login::on_reg_register_clicked()
             {
                 //解析json出错
                 qCritical()<<"Json parse error:"<<err.errorString();
-                QMessageBox::critical(this,"Json解析出错",err.errorString());
+                QMessageBox::critical(this,QString::fromLocal8Bit("Json解析出错"),err.errorString());
                 break;
             }
             //check if server return code=0
