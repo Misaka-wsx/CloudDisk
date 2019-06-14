@@ -28,6 +28,7 @@ login::login(QWidget *parent)
 
 login::~login()
 {
+	
 }
 
 void login::paintEvent(QPaintEvent* event)
@@ -37,7 +38,22 @@ void login::paintEvent(QPaintEvent* event)
 	p.drawPixmap(0,0,this->width(),this->height(),pximap);
 }
 
-void login::on_register_2_clicked()
+void login::on_login_register_clicked()
 {
-	ui.main_text->setCurrentWidget(ui.reg_page);
+    ui.main_text->setCurrentWidget(ui.reg_page);
+}
+
+void login::on_reg_back_main_clicked()
+{
+    ui.main_text->setCurrentWidget(ui.login_page);
+}
+
+void login::on_reg_register_clicked()
+{
+
+}
+
+void login::on_setting_back_main_clicked()
+{
+     ui.main_text->setCurrentWidget(ui.login_page);
 }

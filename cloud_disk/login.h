@@ -16,5 +16,8 @@ private:
 protected:
 	void paintEvent(QPaintEvent* event);
 private slots:
-    void on_register_2_clicked();
+    void on_login_register_clicked();
+    void on_reg_back_main_clicked();
+    void on_reg_register_clicked();
+    void on_setting_back_main_clicked();
 };

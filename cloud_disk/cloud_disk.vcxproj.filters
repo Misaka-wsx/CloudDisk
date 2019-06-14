@@ -42,6 +42,12 @@
     <ClCompile Include="title.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="common.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="networkmanager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="cloud_disk.h">
@@ -51,6 +57,9 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="title.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="networkmanager.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
@@ -69,5 +78,10 @@
     <QtRcc Include="cloud_disk.qrc">
       <Filter>Resource Files</Filter>
     </QtRcc>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="common.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

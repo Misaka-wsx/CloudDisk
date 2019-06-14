@@ -9,11 +9,15 @@ message("You are running qmake on a generated .pro file. This may not work!")
 
 HEADERS += ./cloud_disk.h \
     ./login.h \
-    ./title.h
+    ./title.h \
+    ./common.h \
+    ./networkmanager.h
 SOURCES += ./cloud_disk.cpp \
     ./login.cpp \
     ./main.cpp \
-    ./title.cpp
+    ./title.cpp \
+    ./common.cpp \
+    ./networkmanager.cpp
 FORMS += ./cloud_disk.ui \
     ./login.ui \
     ./title.ui

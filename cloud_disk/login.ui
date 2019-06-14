@@ -23,7 +23,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>2</number>
    </property>
    <widget class="QWidget" name="login_page">
     <layout class="QVBoxLayout" name="verticalLayout">
@@ -58,7 +58,7 @@
                 </widget>
                </item>
                <item row="1" column="1">
-                <widget class="QLineEdit" name="username_input"/>
+                <widget class="QLineEdit" name="login_username_input"/>
                </item>
                <item row="1" column="0">
                 <widget class="QLabel" name="username">
@@ -68,10 +68,10 @@
                 </widget>
                </item>
                <item row="2" column="1">
-                <widget class="QLineEdit" name="password_input"/>
+                <widget class="QLineEdit" name="login_password_input"/>
                </item>
                <item row="0" column="1">
-                <widget class="QLabel" name="title1">
+                <widget class="QLabel" name="login_title">
                  <property name="layoutDirection">
                   <enum>Qt::LeftToRight</enum>
                  </property>
@@ -97,7 +97,7 @@
              <widget class="QWidget" name="widget_3" native="true">
               <layout class="QHBoxLayout" name="horizontalLayout">
                <item>
-                <widget class="QCheckBox" name="checkBox_rmpswd">
+                <widget class="QCheckBox" name="login_checkBox_rmpswd">
                  <property name="text">
                   <string>记住密码</string>
                  </property>
@@ -117,7 +117,7 @@
                 </spacer>
                </item>
                <item>
-                <widget class="QToolButton" name="register_2">
+                <widget class="QToolButton" name="login_register">
                  <property name="text">
                   <string>没有账号？立即注册</string>
                  </property>
@@ -143,7 +143,7 @@
                 </spacer>
                </item>
                <item>
-                <widget class="QToolButton" name="enter">
+                <widget class="QToolButton" name="login_enter">
                  <property name="text">
                   <string>登录</string>
                  </property>
@@ -224,7 +224,7 @@
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QLineEdit" name="username_3"/>
+       <widget class="QLineEdit" name="reg_username"/>
       </item>
       <item row="1" column="0">
        <widget class="QLabel" name="label_17">
@@ -234,7 +234,7 @@
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="QLineEdit" name="nickname_2"/>
+       <widget class="QLineEdit" name="reg_nickname"/>
       </item>
       <item row="2" column="0">
        <widget class="QLabel" name="label_18">
@@ -244,7 +244,7 @@
        </widget>
       </item>
       <item row="2" column="1">
-       <widget class="QLineEdit" name="password_3">
+       <widget class="QLineEdit" name="reg_password">
         <property name="echoMode">
          <enum>QLineEdit::PasswordEchoOnEdit</enum>
         </property>
@@ -258,7 +258,7 @@
        </widget>
       </item>
       <item row="3" column="1">
-       <widget class="QLineEdit" name="password_enter_2">
+       <widget class="QLineEdit" name="reg_password_enter">
         <property name="echoMode">
          <enum>QLineEdit::PasswordEchoOnEdit</enum>
         </property>
@@ -272,7 +272,7 @@
        </widget>
       </item>
       <item row="4" column="1">
-       <widget class="QLineEdit" name="phone_2"/>
+       <widget class="QLineEdit" name="reg_phone"/>
       </item>
       <item row="5" column="0">
        <widget class="QLabel" name="label_21">
@@ -282,7 +282,7 @@
        </widget>
       </item>
       <item row="5" column="1">
-       <widget class="QLineEdit" name="email_2"/>
+       <widget class="QLineEdit" name="reg_mail"/>
       </item>
      </layout>
     </widget>
@@ -297,7 +297,7 @@
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout_3">
       <item>
-       <widget class="QPushButton" name="reg_btn_2">
+       <widget class="QPushButton" name="reg_register">
         <property name="text">
          <string>注册</string>
         </property>
@@ -317,7 +317,7 @@
        </spacer>
       </item>
       <item>
-       <widget class="QPushButton" name="back_main_2">
+       <widget class="QPushButton" name="reg_back_main">
         <property name="text">
          <string>返回</string>
         </property>
@@ -372,7 +372,7 @@
         </widget>
        </item>
        <item row="0" column="1">
-        <widget class="QLineEdit" name="host_ip_4">
+        <widget class="QLineEdit" name="setting_host_ip">
          <property name="text">
           <string>192.168.58.133</string>
          </property>
@@ -386,7 +386,7 @@
         </widget>
        </item>
        <item row="1" column="1">
-        <widget class="QLineEdit" name="host_port_4">
+        <widget class="QLineEdit" name="setting_host_port">
          <property name="text">
           <string>80</string>
          </property>
@@ -395,7 +395,7 @@
       </layout>
      </widget>
     </widget>
-    <widget class="QPushButton" name="pushButton_10">
+    <widget class="QPushButton" name="setting_back_main">
      <property name="geometry">
       <rect>
        <x>110</x>
@@ -408,7 +408,7 @@
       <string>返回</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_11">
+    <widget class="QPushButton" name="setting_enter">
      <property name="geometry">
       <rect>
        <x>220</x>
@@ -442,8 +442,6 @@
    <container>1</container>
   </customwidget>
  </customwidgets>
- <resources>
-  <include location="cloud_disk.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>
