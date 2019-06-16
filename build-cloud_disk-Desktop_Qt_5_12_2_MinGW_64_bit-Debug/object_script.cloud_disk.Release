@@ -5,6 +5,7 @@ release/main.o
 release/networkmanager.o
 release/title.o
 release/config.o
+release/tools.o
 release/qrc_cloud_disk.o
 release/moc_cloud_disk.o
 release/moc_login.o

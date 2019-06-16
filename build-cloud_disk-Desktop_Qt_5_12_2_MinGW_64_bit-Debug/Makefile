@@ -248,6 +248,7 @@ Makefile: ../cloud_disk/cloud_disk.pro C:/Qt/Qt5.12.2/5.12.2/mingw73_64/mkspecs/
 		C:/Qt/Qt5.12.2/5.12.2/mingw73_64/mkspecs/features/lex.prf \
 		../cloud_disk/cloud_disk.pro \
 		C:/Qt/Qt5.12.2/5.12.2/mingw73_64/lib/Qt5Widgets.prl \
+		C:/Qt/Qt5.12.2/5.12.2/mingw73_64/lib/Qt5WinExtras.prl \
 		C:/Qt/Qt5.12.2/5.12.2/mingw73_64/lib/Qt5Gui.prl \
 		C:/Qt/Qt5.12.2/5.12.2/mingw73_64/lib/Qt5Network.prl \
 		C:/Qt/Qt5.12.2/5.12.2/mingw73_64/lib/Qt5Core.prl \
@@ -438,6 +439,7 @@ C:/Qt/Qt5.12.2/5.12.2/mingw73_64/mkspecs/features/yacc.prf:
 C:/Qt/Qt5.12.2/5.12.2/mingw73_64/mkspecs/features/lex.prf:
 ../cloud_disk/cloud_disk.pro:
 C:/Qt/Qt5.12.2/5.12.2/mingw73_64/lib/Qt5Widgets.prl:
+C:/Qt/Qt5.12.2/5.12.2/mingw73_64/lib/Qt5WinExtras.prl:
 C:/Qt/Qt5.12.2/5.12.2/mingw73_64/lib/Qt5Gui.prl:
 C:/Qt/Qt5.12.2/5.12.2/mingw73_64/lib/Qt5Network.prl:
 C:/Qt/Qt5.12.2/5.12.2/mingw73_64/lib/Qt5Core.prl:

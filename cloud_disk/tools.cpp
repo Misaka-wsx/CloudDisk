@@ -1,5 +1,5 @@
 #include "tools.h"
-
+#include "common.h"
 QByteArray getFileMd5(QString filePath)
 {
     QFile localFile(filePath);
@@ -7,7 +7,7 @@ QByteArray getFileMd5(QString filePath)
     if (!localFile.open(QFile::ReadOnly))
     {
         qDebug() << "file open error.";
-        return 0;
+        return nullptr;
     }
 
     QCryptographicHash ch(QCryptographicHash::Md5);
@@ -51,7 +51,7 @@ QByteArray getFileMd5(QString filePath)
 // 获取文件图标
 HICON fileIcon(std::string extention)
 {
-    HICON icon = nullptr;
+    HICON icon = NULL;
     if (extention.length() > 0)
     {
         LPCSTR name = extention.c_str();

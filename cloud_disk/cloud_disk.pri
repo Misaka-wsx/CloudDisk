@@ -12,14 +12,16 @@ HEADERS += ./common.h \
     ./login.h \
     ./title.h \
     ./networkmanager.h \
-    ./config.h
+    ./config.h \
+    $$PWD/tools.h
 SOURCES += ./cloud_disk.cpp \
     ./common.cpp \
     ./login.cpp \
     ./main.cpp \
     ./networkmanager.cpp \
     ./title.cpp \
-    ./config.cpp
+    ./config.cpp \
+    $$PWD/tools.cpp
 FORMS += ./cloud_disk.ui \
     ./login.ui \
     ./title.ui

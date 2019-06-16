@@ -5,6 +5,7 @@ debug/main.o
 debug/networkmanager.o
 debug/title.o
 debug/config.o
+debug/tools.o
 debug/qrc_cloud_disk.o
 debug/moc_cloud_disk.o
 debug/moc_login.o
