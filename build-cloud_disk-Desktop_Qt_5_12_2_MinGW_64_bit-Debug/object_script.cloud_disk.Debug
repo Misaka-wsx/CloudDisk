@@ -1,9 +1,10 @@
 debug/cloud_disk.o
+debug/common.o
 debug/login.o
 debug/main.o
-debug/title.o
-debug/common.o
 debug/networkmanager.o
+debug/title.o
+debug/config.o
 debug/qrc_cloud_disk.o
 debug/moc_cloud_disk.o
 debug/moc_login.o

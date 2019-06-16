@@ -51,7 +51,7 @@ QByteArray getFileMd5(QString filePath)
 // 获取文件图标
 HICON fileIcon(std::string extention)
 {
-    HICON icon = NULL;
+    HICON icon = nullptr;
     if (extention.length() > 0)
     {
         LPCSTR name = extention.c_str();

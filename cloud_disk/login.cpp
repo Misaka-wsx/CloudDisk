@@ -1,18 +1,5 @@
-#pragma execution_character_set("utf-8")
 #include "login.h"
-#include <QPainter>
-#include <QMessageBox>
-#include <QJsonObject>
-#include <QJsonDocument>
-#include <QMap>
-#include <QtNetwork/qnetworkaccessmanager.h>
-#include <QtNetwork/qnetworkrequest.h>
-#include <QtNetwork/qnetworkreply.h>
-#include <qcryptographichash.h>
-#include "networkmanager.h"
-#include "common.h"
-#include <QString>
-#include <QDebug>
+
 login::login(QWidget *parent)
 	: QDialog(parent)
 {
@@ -41,7 +28,12 @@ login::login(QWidget *parent)
 
 login::~login()
 {
-	
+
+}
+
+void login::set_config(Config *temp_config)
+{
+    this->config=temp_config;
 }
 
 void login::paintEvent(QPaintEvent* event)
@@ -60,59 +52,59 @@ void login::on_reg_back_main_clicked()
 {
     ui.main_text->setCurrentWidget(ui.login_page);
 }
-//×¢²á¹¦ÄÜ
+//æ³¨å†ŒåŠŸèƒ½
 void login::on_reg_register_clicked()
 {
-    //»ñÈ¡ÓÃ»§ÊäÈëÊı¾İ
+    //è·å–ç”¨æˆ·è¾“å…¥æ•°æ®
     QString userName=this->ui.reg_username->text();
     QString password=this->ui.reg_password->text();
     QString password_1=this->ui.reg_password_enter->text();
     QString nickName=this->ui.reg_mail->text();
     QString email=this->ui.reg_mail->text();
     QString phone=this->ui.reg_phone->text();
-    //¶¨ÒåÕıÔò
+    //å®šä¹‰æ­£åˆ™
     QRegExp regName(REG_USER_NAME);
     QRegExp regPasswd(REG_PASSWD);
     QRegExp regPhone(REG_PHONE);
     QRegExp regEmail(REG_EMAIL);
-    //ÑéÖ¤ÕıÔò
+    //éªŒè¯æ­£åˆ™
     if(!regName.exactMatch(userName))
     {
-        QMessageBox::critical(this,QString::fromLocal8Bit("ÓÃ»§Ãû´íÎó"),QString::fromLocal8Bit("ÓÃ»§ÃûÃüÃû²»·ûºÏ¹æÔò"));
+        QMessageBox::critical(this,QString::fromLocal8Bit("ç”¨æˆ·åé”™è¯¯"),QString::fromLocal8Bit("ç”¨æˆ·åå‘½åä¸ç¬¦åˆè§„åˆ™"));
         return;
     }
     if(!regName.exactMatch(nickName))
     {
-        QMessageBox::critical(this,QString::fromLocal8Bit("êÇ³Æ´íÎó"),QString::fromLocal8Bit("êÇ³ÆÃüÃû²»·ûºÏ¹æÔò"));
+        QMessageBox::critical(this,QString::fromLocal8Bit("æ˜µç§°é”™è¯¯"),QString::fromLocal8Bit("æ˜µç§°å‘½åä¸ç¬¦åˆè§„åˆ™"));
         return;
     }
     if(ui.reg_password->text().isEmpty()||ui.reg_password_enter->text().isEmpty())
     {
-        QMessageBox::warning(this,QString::fromLocal8Bit("ÃÜÂë±ØĞëÌîĞ´"),QString::fromLocal8Bit("ÃÜÂëÎª¿Õ"))
+        QMessageBox::warning(this,QString::fromLocal8Bit("å¯†ç å¿…é¡»å¡«å†™"),QString::fromLocal8Bit("å¯†ç ä¸ºç©º"));
     }
     if(!regPasswd.exactMatch(REG_PASSWD))
     {
-        QMessageBox::critical(this,QString::fromLocal8Bit("ÃÜÂë´íÎó"),QString::fromLocal8Bit("ÃÜÂë²»·ûºÏ¹æÔò"));
+        QMessageBox::critical(this,QString::fromLocal8Bit("å¯†ç é”™è¯¯"),QString::fromLocal8Bit("å¯†ç ä¸ç¬¦åˆè§„åˆ™"));
         return;
     }
     if(password!=password_1)
     {
-        QMessageBox::critical(this,QString::fromLocal8Bit("ÃÜÂë´íÎó"),QString::fromLocal8Bit("Á½´ÎÃÜÂëÊäÈë²»Ò»ÖÂ"));
+        QMessageBox::critical(this,QString::fromLocal8Bit("å¯†ç é”™è¯¯"),QString::fromLocal8Bit("ä¸¤æ¬¡å¯†ç è¾“å…¥ä¸ä¸€è‡´"));
         return;
     }
     if(!regEmail.exactMatch(REG_EMAIL))
     {
-        QMessageBox::critical(this,QString::fromLocal8Bit("ÓÊÏä´íÎó"),QString::fromLocal8Bit("ÓÊÏä²»·ûºÏ¹æÔò"));
+        QMessageBox::critical(this,QString::fromLocal8Bit("é‚®ç®±é”™è¯¯"),QString::fromLocal8Bit("é‚®ç®±ä¸ç¬¦åˆè§„åˆ™"));
         return;
     }
     if(!regPhone.exactMatch(REG_PHONE))
     {
-        QMessageBox::critical(this,QString::fromLocal8Bit("µç»°´íÎó"),QString::fromLocal8Bit("µç»°²»·ûºÏ¹æÔò"));
+        QMessageBox::critical(this,QString::fromLocal8Bit("ç”µè¯é”™è¯¯"),QString::fromLocal8Bit("ç”µè¯ä¸ç¬¦åˆè§„åˆ™"));
         return;
     }
-    //ÃÜÂëÊ¹ÓÃmd5¼ÓÃÜ
+    //å¯†ç ä½¿ç”¨md5åŠ å¯†
     QCryptographicHash md5(QCryptographicHash::Md5);
-    //Ìí¼ÓÒª¼ÆËãµÄÊı¾İ
+    //æ·»åŠ è¦è®¡ç®—çš„æ•°æ®
     md5.addData(password.toUtf8());
     //md5 result;
     auto md5Array=md5.result();
@@ -147,9 +139,9 @@ void login::on_reg_register_clicked()
             QJsonDocument doc=QJsonDocument::fromJson(content,&err);
             if(err.error!=QJsonParseError::NoError)
             {
-                //½âÎöjson³ö´í
+                //è§£æjsonå‡ºé”™
                 qCritical()<<"Json parse error:"<<err.errorString();
-                QMessageBox::critical(this,QString::fromLocal8Bit("Json½âÎö³ö´í"),err.errorString());
+                QMessageBox::critical(this,QString::fromLocal8Bit("Jsonè§£æå‡ºé”™"),err.errorString());
                 break;
             }
             //check if server return code=0
@@ -181,4 +173,68 @@ void login::on_reg_register_clicked()
 void login::on_setting_back_main_clicked()
 {
      ui.main_text->setCurrentWidget(ui.login_page);
+}
+//login
+void login::on_login_enter_clicked()
+{
+    //è·å–url
+    this->config->url=QString("%1%2").arg("http://").arg(ui.setting_host_ip->text());
+    //å‘é€request
+    QNetworkRequest request(QUrl(QString("%1%2%3").arg("http://").arg(ui.setting_host_ip->text()).arg("/login")));
+    //è®¾ç½®æ•°æ®ä¼ è¾“æ–¹å¼ï¼ˆpostï¼‰
+    request.setRawHeader("Content-Type","application/json");
+    request.setRawHeader("cookie","afsbfuewihfksdjnfbkdf");
+    //å°è£…jsonå¯¹è±¡
+    QJsonObject json;
+    json.insert("username",ui.login_username_input->text());
+    json.insert("password",ui.login_password_input->text());
+    //å®šä¹‰jsonæ“ä½œç±»
+    QJsonDocument document;
+    document.setObject(json);
+    QByteArray data_json=document.toJson();
+    QNetworkReply *rep=this->net_manger->post(request,data_json);
+    //è¯·æ±‚ç»“æŸ
+    connect(rep,&QNetworkReply::finished,[=](){
+        //è¯·æ±‚å‡ºé”™
+        if(rep->error()!=QNetworkReply::NoError){
+            qCritical()<<"network,!"<<this->ip<<rep->errorString();
+            QMessageBox::critical(this,"network error!",rep->errorString());
+            rep->deleteLater();
+            return;
+        }
+        //è¿æ¥æ­£å¸¸
+        QByteArray byte_arr=rep->readAll();
+        //åˆ¤æ–­å­—ç¬¦ä¸²è½¬åŒ–ä¸ºQJsonDocument æ˜¯å¦å‡ºç°é”™è¯¯
+        QJsonParseError jsonError;
+        QJsonDocument json=QJsonDocument::fromJson(byte_arr,&jsonError);
+        if(jsonError.error==QJsonParseError::NoError)
+        {
+            QMessageBox::information(this,QString::fromLocal8Bit("æˆåŠŸ"),QString::fromLocal8Bit("æˆåŠŸ"));
+            QJsonObject obj=json.object();
+            //qint8
+            qint64 status=obj.value("status").toInt();
+            QString msg=obj.value("msg").toString();
+            this->config->token=obj.value("token").toString().toLatin1();
+            if(1==status)
+            {
+                QMessageBox::information(this,QString::fromLocal8Bit("ç™»å½•æˆåŠŸ"),QString::fromLocal8Bit("ç™»å½•æˆåŠŸ"));
+                this->window_change();
+            }else
+            {
+                    QMessageBox::about(this,QString::fromLocal8Bit("å¤±è´¥"),msg);
+            }
+        }else
+        {
+            QString result_str=byte_arr;
+            qDebug()<<"è¿”å›jsonæ ¼å¼é”™è¯¯ï¼Œè¿”å›"<<result_str<<endl;
+        }
+    });
+}
+
+void login::window_change()
+{
+     cloud_disk *disk_window=new cloud_disk;
+     disk_window->set_config(this->config);
+     disk_window->show();
+     this->close();
 }

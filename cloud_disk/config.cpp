@@ -1,6 +1,11 @@
 #include "config.h"
 
-config::config()
+Config::Config()
 {
 
+}
+
+void Config::clear()
+{
+    this->token.clear();
 }

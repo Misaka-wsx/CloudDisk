@@ -1,9 +1,10 @@
 release/cloud_disk.o
+release/common.o
 release/login.o
 release/main.o
-release/title.o
-release/common.o
 release/networkmanager.o
+release/title.o
+release/config.o
 release/qrc_cloud_disk.o
 release/moc_cloud_disk.o
 release/moc_login.o

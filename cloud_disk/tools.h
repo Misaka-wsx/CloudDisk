@@ -6,7 +6,7 @@
 #include <QCryptographicHash>
 #include <QFile>
 #include <QDebug>
-#include "mainwindow.h"
+#include "login.h"
 
 
 QByteArray getFileMd5(QString filePath);

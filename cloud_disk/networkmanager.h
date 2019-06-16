@@ -2,7 +2,7 @@
 #define NETWORKMANAGER_H
 
 #include <QObject>
-#include <QNetworkAccessManager>
+#include <QtNetwork/QNetworkAccessManager>
 
 class NetworkManager : public QNetworkAccessManager
 {
