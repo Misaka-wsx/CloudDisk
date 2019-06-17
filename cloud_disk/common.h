@@ -3,8 +3,14 @@
 #include <QIcon>
 #include <QFileIconProvider>
 #include <QTemporaryFile>
-
+#include <QJsonObject>
+#include <QJsonDocument>
 #include <windows.h>
+#include <QJsonArray>
+#include <QJsonParseError>
+#include <QObject>
+#include <QPixmap>
+#include <QtWin>
 constexpr auto REG_USER_NAME = "^\\w{5,32}$";
 constexpr auto REG_PASSWD = "^\\w{6,16}$";
 constexpr auto REG_PHONE = "^\\d{11}$";

@@ -102,7 +102,53 @@ void cloud_disk::uploadFile(QString filename)
 
 void cloud_disk::flushTable(QJsonDocument json)
 {
+    //清空之前文件列表
+    ui->listWidget->clear();
+    //添加上传按钮
+    this->addUploadButton();
+    //数组长度
+    int arrayLength=0;
+    //二维数组长度
+    int arrayValueLength=0;
+    if(json.isArray()){
+        qDebug()<<"是一个数组"<<endl;
+        QJsonArray array =json.array();
+        arrayLength=array.size();
+        for(int i=0;i<arrayLength;++i)
+        {
+            //取出二维数组中json数组
+            QJsonObject arrayValue=array.at(i).toObject();
+            //从json对象中取出fileId
+            QJsonValue id = arrayValue.value("id");
+            QJsonValue uid = arrayValue.value("uid");
+            QJsonValue file_id = arrayValue.value("file_id");
+            QJsonValue filename = arrayValue.value("filename");
+            QJsonValue createtime = arrayValue.value("createtime");
+            QJsonValue shared_status = arrayValue.value("shared_status");
+            QJsonValue pv = arrayValue.value("pv");
+            QJsonValue md5 = arrayValue.value("md5");
+            QJsonValue size = arrayValue.value("size");
+            QJsonValue type = arrayValue.value("type");
+            QJsonValue count = arrayValue.value("count");
 
+            //定义qlistwidgetTtem对象
+            QListWidgetItem *imageItem=new QListWidgetItem;
+            //从扩展名获取windows图标
+            HICON thisIcon=fileIcon(QString(".%1").arg(type.toString()).toStdString());
+            //将获取的windows图标句柄转换成qt能用的qpixmap
+            QPixmap iconImage=QtWin::fromHICON(thisIcon);
+
+            imageItem->setIcon(QIcon(iconImage));
+            imageItem->setText(filename.toString());
+            //重新设置单元项图片宽度和高度
+            imageItem->setSizeHint(QSize(100,100));
+            //将单元项添加到qlistwidget中
+            ui->listWidget->addItem(imageItem);
+        }
+    }else
+    {
+        qDebug()<<"不是一个数组"<<endl;
+    }
 }
 
 void cloud_disk::addUploadButton()
@@ -116,7 +162,36 @@ void cloud_disk::addUploadButton()
 
 void cloud_disk::onMyFilesClicked()
 {
+    QNetworkRequest request(QUrl(QString("%1%2").arg(this->config->url).arg("/myfiles")));
+    request.setRawHeader("token",this->config->token);
+    QByteArray postData;
+    postData.append("{\"action\":\"get_list\"}\n");
+    QNetworkReply* rep=this->netManger->post(request,postData);
+    connect(rep,&QNetworkReply::finished,[=](){
+        if(rep->error()!=QNetworkReply::NoError)
+        {
+            qDebug()<<"发送请求错误"<<endl;
+            rep->deleteLater();
+            return ;
+        }
+        QByteArray byteArray=rep->readAll();
+        QString result=byteArray;
 
+        QJsonParseError jsonError;
+        QJsonDocument json=QJsonDocument::fromJson(byteArray,&jsonError);
+        //正常
+        if(jsonError.error==QJsonParseError::NoError)
+        {
+            qDebug().noquote()<<result;
+            //刷新文件列表
+            this->flushTable(json);
+        }else
+        {
+            qDebug()<<"json解析错误"<<endl;
+            rep->deleteLater();
+        }
+    });
+    qDebug()<<"获取完成"<<endl;
 }
 
 void cloud_disk::uploadButton()
