@@ -97,7 +97,53 @@ void cloud_disk::checkFileMd5(QString filename, QString fileMd5String)
 
 void cloud_disk::uploadFile(QString filename)
 {
-
+    qDebug()<<"进入文件上传函数"<<endl;
+    do{
+        QFile file(filename);
+        QFileInfo fi(filename);
+        if(!file.open(QIODevice::ReadOnly)||file.size()==0)
+        {
+            file.close();
+            break;
+        }
+        QByteArray postData;
+        postData.append(QString("-----------------------------18410170095896\r\nContent-Disposition: form-data; name=\"file\"; filename=\"%1\"\r\nContent-Type: text/plain\r\n\r\n").arg(fi.fileName()));
+        //添加读取的文件
+        postData.append(file.readAll());
+        postData.append("\r\n-----------------------------18410170095896--\r\n");
+        QNetworkReply *rpl=NetworkManager::getInstance().postObject(CONN_URL,postData);
+        //deal connect
+        connect(rpl,&QNetworkReply::finished,this,[=](){
+            if(rpl->error()!=QNetworkReply::NoError)
+            {
+                rpl->deleteLater();
+                return ;
+            }
+            auto byteArray=rpl->readAll();
+            QJsonParseError err;
+            QJsonDocument doc=QJsonDocument::fromJson(byteArray,&err);
+            //no error
+            if(err.error==QJsonParseError::NoError)
+            {
+                QJsonObject obj=doc.object();
+                int code=obj.value("code").toInt();
+                QString message=obj.value("message").toString();
+                //code=1上传成功
+                if(1==code)
+                {
+                    QMessageBox::information(this,"文件上传成功","文件上传成功");
+                    this->onMyFilesClicked();
+                }else
+                {
+                    QMessageBox::warning(this,"上传失败","上传失败");
+                }
+            }else
+            {
+                QMessageBox::critical(this,"返回json格式错误","返回json格式错误");
+            }
+            rpl->deleteLater();
+        });
+    }while(0);
 }
 
 void cloud_disk::flushTable(QJsonDocument json)
@@ -109,7 +155,7 @@ void cloud_disk::flushTable(QJsonDocument json)
     //数组长度
     int arrayLength=0;
     //二维数组长度
-    int arrayValueLength=0;
+    //int arrayValueLength=0
     if(json.isArray()){
         qDebug()<<"是一个数组"<<endl;
         QJsonArray array =json.array();
@@ -214,13 +260,17 @@ void cloud_disk::on_switch_user_clicked()
    this->close();
 }
 
+void cloud_disk::on_minmize_clicked()
+{
+    this->showMinimized();
+}
 
+void cloud_disk::on_maxmize_clicked()
+{
+    this->showMaximized();
+}
 
-
-
-
-
-
-
-
-
+void cloud_disk::on_close_window_clicked()
+{
+    this->on_switch_user_clicked();
+}

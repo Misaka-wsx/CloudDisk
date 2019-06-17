@@ -40,7 +40,8 @@ private slots:
     void on_login_register_clicked();
     void on_reg_back_main_clicked();
     void on_reg_register_clicked();
-    void on_setting_back_main_clicked();
-    void on_login_enter_clicked();
-    void window_change();
+    void onSettingBackMainClicked();
+    void onLoginEnterClicked();
+    void windowChange();
+    void onSettingEnterClicked();
 };

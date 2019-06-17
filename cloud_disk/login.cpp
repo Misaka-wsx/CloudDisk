@@ -170,12 +170,12 @@ void login::on_reg_register_clicked()
     });
 }
 
-void login::on_setting_back_main_clicked()
+void login::onSettingBackMainClicked()
 {
      ui.main_text->setCurrentWidget(ui.login_page);
 }
 //login
-void login::on_login_enter_clicked()
+void login::onLoginEnterClicked()
 {
     //获取url
     this->config->url=QString("%1%2").arg("http://").arg(ui.setting_host_ip->text());
@@ -218,7 +218,7 @@ void login::on_login_enter_clicked()
             if(1==status)
             {
                 QMessageBox::information(this,QString::fromLocal8Bit("登录成功"),QString::fromLocal8Bit("登录成功"));
-                this->window_change();
+                this->windowChange();
             }else
             {
                     QMessageBox::about(this,QString::fromLocal8Bit("失败"),msg);
@@ -231,10 +231,16 @@ void login::on_login_enter_clicked()
     });
 }
 
-void login::window_change()
+void login::windowChange()
 {
-     cloud_disk *disk_window=new cloud_disk;
-     disk_window->set_config(this->config);
-     disk_window->show();
+     cloud_disk *diskWindow=new cloud_disk;
+     diskWindow->set_config(this->config);
+     diskWindow->show();
      this->close();
+}
+
+void login::onSettingEnterClicked()
+{
+    //用返回按钮实现
+    this->onSettingBackMainClicked();
 }

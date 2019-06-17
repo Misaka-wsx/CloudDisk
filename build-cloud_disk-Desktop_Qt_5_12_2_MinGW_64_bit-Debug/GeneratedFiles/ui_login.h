@@ -355,7 +355,7 @@ public:
 
         retranslateUi(login);
 
-        main_text->setCurrentIndex(0);
+        main_text->setCurrentIndex(2);
 
 
         QMetaObject::connectSlotsByName(login);

@@ -20,6 +20,12 @@ private slots:
     void uploadButton();
     void on_switch_user_clicked();
 
+    void on_minmize_clicked();
+
+    void on_maxmize_clicked();
+
+    void on_close_window_clicked();
+
 private:
     Ui::cloud_disk *ui;
     void checkFileMd5(QString filename,QString fileMd5String);
