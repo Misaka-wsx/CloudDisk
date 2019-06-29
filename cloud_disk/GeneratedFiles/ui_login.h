@@ -13,385 +13,645 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QCheckBox>
 #include <QtWidgets/QDialog>
-#include <QtWidgets/QFormLayout>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
-#include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStackedWidget>
 #include <QtWidgets/QToolButton>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
-#include <title.h>
+#include <selfwidget/titlewidget.h>
 
 QT_BEGIN_NAMESPACE
 
-class Ui_login
+class Ui_Login
 {
 public:
-    QStackedWidget *main_text;
-    QWidget *login_page;
     QVBoxLayout *verticalLayout;
-    QVBoxLayout *verticalLayout_6;
+    TitleWidget *title_widget;
+    QStackedWidget *stackedWidget;
+    QWidget *login_page;
+    QVBoxLayout *verticalLayout_3;
     QSpacerItem *verticalSpacer;
     QWidget *widget;
-    QVBoxLayout *verticalLayout_4;
-    QVBoxLayout *verticalLayout_2;
+    QHBoxLayout *horizontalLayout_3;
+    QSpacerItem *horizontalSpacer;
     QWidget *widget_2;
-    QGridLayout *gridLayout_2;
-    QLabel *password;
-    QLineEdit *login_username_input;
-    QLabel *username;
-    QLineEdit *login_password_input;
-    QLabel *login_title;
-    QVBoxLayout *verticalLayout_3;
+    QVBoxLayout *verticalLayout_2;
+    QWidget *widget_6;
+    QHBoxLayout *horizontalLayout_4;
+    QLabel *label_3;
+    QWidget *widget_7;
     QWidget *widget_3;
-    QHBoxLayout *horizontalLayout;
-    QCheckBox *login_checkBox_rmpswd;
-    QSpacerItem *horizontalSpacer_3;
-    QToolButton *login_register;
+    QGridLayout *gridLayout;
+    QLabel *label_2;
+    QLineEdit *log_usr;
+    QLineEdit *log_pwd;
+    QLabel *label;
+    QSpacerItem *horizontalSpacer_4;
+    QSpacerItem *verticalSpacer_3;
     QWidget *widget_4;
     QHBoxLayout *horizontalLayout_2;
-    QSpacerItem *horizontalSpacer;
-    QToolButton *login_enter;
-    QSpacerItem *horizontalSpacer_2;
-    QSpacerItem *verticalSpacer_3;
-    QWidget *reg_page;
-    QLabel *label_15;
-    QWidget *widget_7;
-    QGridLayout *gridLayout_3;
-    QLabel *label_16;
-    QLineEdit *reg_username;
-    QLabel *label_17;
-    QLineEdit *reg_nickname;
-    QLabel *label_18;
-    QLineEdit *reg_password;
-    QLabel *label_19;
-    QLineEdit *reg_password_enter;
-    QLabel *label_20;
-    QLineEdit *reg_phone;
-    QLabel *label_21;
-    QLineEdit *reg_mail;
-    QWidget *layoutWidget;
-    QHBoxLayout *horizontalLayout_3;
-    QPushButton *reg_register;
-    QSpacerItem *horizontalSpacer_4;
-    QPushButton *reg_back_main;
-    QWidget *set_page;
-    QLabel *label_48;
+    QSpacerItem *horizontalSpacer_11;
+    QCheckBox *rember_pwd;
+    QSpacerItem *horizontalSpacer_3;
+    QToolButton *log_register_btn;
+    QSpacerItem *horizontalSpacer_12;
+    QWidget *widget_5;
+    QHBoxLayout *horizontalLayout;
+    QToolButton *login_btn;
     QWidget *widget_8;
-    QWidget *layoutWidget_4;
-    QFormLayout *formLayout_4;
-    QLabel *label_49;
-    QLineEdit *setting_host_ip;
-    QLabel *label_50;
-    QLineEdit *setting_host_port;
-    QPushButton *setting_back_main;
-    QPushButton *setting_enter;
-    title *title_wg;
+    QSpacerItem *horizontalSpacer_2;
+    QSpacerItem *verticalSpacer_2;
+    QWidget *register_page;
+    QVBoxLayout *verticalLayout_5;
+    QSpacerItem *verticalSpacer_5;
+    QWidget *widget_9;
+    QHBoxLayout *horizontalLayout_5;
+    QSpacerItem *horizontalSpacer_5;
+    QWidget *widget_10;
+    QVBoxLayout *verticalLayout_4;
+    QWidget *widget_11;
+    QHBoxLayout *horizontalLayout_6;
+    QLabel *label_4;
+    QWidget *widget_13;
+    QGridLayout *gridLayout_2;
+    QLabel *label_10;
+    QLabel *label_9;
+    QLineEdit *reg_phone;
+    QLineEdit *reg_surepwd;
+    QLabel *label_8;
+    QLineEdit *reg_mail;
+    QLabel *label_5;
+    QLabel *label_7;
+    QLineEdit *reg_nickname;
+    QLineEdit *reg_pwd;
+    QLabel *label_6;
+    QLineEdit *reg_usr;
+    QSpacerItem *horizontalSpacer_6;
+    QWidget *widget_15;
+    QHBoxLayout *horizontalLayout_8;
+    QToolButton *register_btn;
+    QWidget *widget_16;
+    QSpacerItem *horizontalSpacer_8;
+    QSpacerItem *verticalSpacer_4;
+    QWidget *set_page;
+    QWidget *widget_12;
+    QHBoxLayout *horizontalLayout_7;
+    QSpacerItem *horizontalSpacer_7;
+    QWidget *widget_14;
+    QVBoxLayout *verticalLayout_6;
+    QWidget *widget_17;
+    QHBoxLayout *horizontalLayout_9;
+    QLabel *label_11;
+    QWidget *widget_18;
+    QGridLayout *gridLayout_3;
+    QSpacerItem *horizontalSpacer_9;
+    QLineEdit *address_server;
+    QLabel *label_15;
+    QLineEdit *port_server;
+    QLabel *label_17;
+    QSpacerItem *verticalSpacer_8;
+    QWidget *widget_19;
+    QHBoxLayout *horizontalLayout_10;
+    QToolButton *set_ok_btn;
+    QWidget *widget_20;
+    QSpacerItem *horizontalSpacer_10;
 
-    void setupUi(QDialog *login)
+    void setupUi(QDialog *Login)
     {
-        if (login->objectName().isEmpty())
-            login->setObjectName(QString::fromUtf8("login"));
-        login->resize(649, 515);
-        main_text = new QStackedWidget(login);
-        main_text->setObjectName(QString::fromUtf8("main_text"));
-        main_text->setGeometry(QRect(100, 80, 431, 331));
+        if (Login->objectName().isEmpty())
+            Login->setObjectName(QString::fromUtf8("Login"));
+        Login->resize(827, 624);
+        Login->setMinimumSize(QSize(640, 480));
+        verticalLayout = new QVBoxLayout(Login);
+        verticalLayout->setSpacing(0);
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
+        title_widget = new TitleWidget(Login);
+        title_widget->setObjectName(QString::fromUtf8("title_widget"));
+
+        verticalLayout->addWidget(title_widget);
+
+        stackedWidget = new QStackedWidget(Login);
+        stackedWidget->setObjectName(QString::fromUtf8("stackedWidget"));
         login_page = new QWidget();
         login_page->setObjectName(QString::fromUtf8("login_page"));
-        verticalLayout = new QVBoxLayout(login_page);
-        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
-        verticalLayout_6 = new QVBoxLayout();
-        verticalLayout_6->setObjectName(QString::fromUtf8("verticalLayout_6"));
-        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+        verticalLayout_3 = new QVBoxLayout(login_page);
+        verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
+        verticalSpacer = new QSpacerItem(20, 33, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        verticalLayout_6->addItem(verticalSpacer);
+        verticalLayout_3->addItem(verticalSpacer);
 
         widget = new QWidget(login_page);
         widget->setObjectName(QString::fromUtf8("widget"));
-        verticalLayout_4 = new QVBoxLayout(widget);
-        verticalLayout_4->setObjectName(QString::fromUtf8("verticalLayout_4"));
-        verticalLayout_2 = new QVBoxLayout();
-        verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
+        horizontalLayout_3 = new QHBoxLayout(widget);
+        horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
+        horizontalSpacer = new QSpacerItem(103, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_3->addItem(horizontalSpacer);
+
         widget_2 = new QWidget(widget);
         widget_2->setObjectName(QString::fromUtf8("widget_2"));
-        gridLayout_2 = new QGridLayout(widget_2);
-        gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
-        password = new QLabel(widget_2);
-        password->setObjectName(QString::fromUtf8("password"));
+        verticalLayout_2 = new QVBoxLayout(widget_2);
+        verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
+        widget_6 = new QWidget(widget_2);
+        widget_6->setObjectName(QString::fromUtf8("widget_6"));
+        horizontalLayout_4 = new QHBoxLayout(widget_6);
+        horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
+        label_3 = new QLabel(widget_6);
+        label_3->setObjectName(QString::fromUtf8("label_3"));
+        QFont font;
+        font.setFamily(QString::fromUtf8("\345\271\274\345\234\206"));
+        font.setPointSize(26);
+        font.setBold(true);
+        font.setWeight(75);
+        label_3->setFont(font);
+        label_3->setAlignment(Qt::AlignCenter);
 
-        gridLayout_2->addWidget(password, 2, 0, 1, 1);
-
-        login_username_input = new QLineEdit(widget_2);
-        login_username_input->setObjectName(QString::fromUtf8("login_username_input"));
-
-        gridLayout_2->addWidget(login_username_input, 1, 1, 1, 1);
-
-        username = new QLabel(widget_2);
-        username->setObjectName(QString::fromUtf8("username"));
-
-        gridLayout_2->addWidget(username, 1, 0, 1, 1);
-
-        login_password_input = new QLineEdit(widget_2);
-        login_password_input->setObjectName(QString::fromUtf8("login_password_input"));
-
-        gridLayout_2->addWidget(login_password_input, 2, 1, 1, 1);
-
-        login_title = new QLabel(widget_2);
-        login_title->setObjectName(QString::fromUtf8("login_title"));
-        login_title->setLayoutDirection(Qt::LeftToRight);
-        login_title->setMidLineWidth(0);
-        login_title->setTextFormat(Qt::PlainText);
-
-        gridLayout_2->addWidget(login_title, 0, 1, 1, 1);
+        horizontalLayout_4->addWidget(label_3);
 
 
-        verticalLayout_2->addWidget(widget_2);
+        verticalLayout_2->addWidget(widget_6);
 
+        widget_7 = new QWidget(widget_2);
+        widget_7->setObjectName(QString::fromUtf8("widget_7"));
+        widget_7->setMinimumSize(QSize(0, 15));
 
-        verticalLayout_4->addLayout(verticalLayout_2);
+        verticalLayout_2->addWidget(widget_7);
 
-        verticalLayout_3 = new QVBoxLayout();
-        verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
-        widget_3 = new QWidget(widget);
+        widget_3 = new QWidget(widget_2);
         widget_3->setObjectName(QString::fromUtf8("widget_3"));
-        horizontalLayout = new QHBoxLayout(widget_3);
-        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
-        login_checkBox_rmpswd = new QCheckBox(widget_3);
-        login_checkBox_rmpswd->setObjectName(QString::fromUtf8("login_checkBox_rmpswd"));
+        gridLayout = new QGridLayout(widget_3);
+        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
+        label_2 = new QLabel(widget_3);
+        label_2->setObjectName(QString::fromUtf8("label_2"));
+        QFont font1;
+        font1.setFamily(QString::fromUtf8("\345\271\274\345\234\206"));
+        font1.setBold(true);
+        font1.setWeight(75);
+        label_2->setFont(font1);
 
-        horizontalLayout->addWidget(login_checkBox_rmpswd);
+        gridLayout->addWidget(label_2, 2, 0, 1, 1);
 
-        horizontalSpacer_3 = new QSpacerItem(88, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        log_usr = new QLineEdit(widget_3);
+        log_usr->setObjectName(QString::fromUtf8("log_usr"));
+        log_usr->setMinimumSize(QSize(0, 25));
+        QFont font2;
+        font2.setFamily(QString::fromUtf8("Aharoni"));
+        font2.setPointSize(12);
+        font2.setBold(true);
+        font2.setWeight(75);
+        log_usr->setFont(font2);
+        log_usr->setAlignment(Qt::AlignCenter);
 
-        horizontalLayout->addItem(horizontalSpacer_3);
+        gridLayout->addWidget(log_usr, 0, 2, 1, 1);
 
-        login_register = new QToolButton(widget_3);
-        login_register->setObjectName(QString::fromUtf8("login_register"));
+        log_pwd = new QLineEdit(widget_3);
+        log_pwd->setObjectName(QString::fromUtf8("log_pwd"));
+        log_pwd->setMinimumSize(QSize(0, 25));
+        log_pwd->setFont(font2);
+        log_pwd->setAlignment(Qt::AlignCenter);
 
-        horizontalLayout->addWidget(login_register);
+        gridLayout->addWidget(log_pwd, 2, 2, 1, 1);
+
+        label = new QLabel(widget_3);
+        label->setObjectName(QString::fromUtf8("label"));
+        label->setFont(font1);
+
+        gridLayout->addWidget(label, 0, 0, 1, 1);
+
+        horizontalSpacer_4 = new QSpacerItem(15, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
+
+        gridLayout->addItem(horizontalSpacer_4, 0, 1, 1, 1);
+
+        verticalSpacer_3 = new QSpacerItem(20, 30, QSizePolicy::Minimum, QSizePolicy::Fixed);
+
+        gridLayout->addItem(verticalSpacer_3, 1, 0, 1, 1);
 
 
-        verticalLayout_3->addWidget(widget_3);
+        verticalLayout_2->addWidget(widget_3);
 
-        widget_4 = new QWidget(widget);
+        widget_4 = new QWidget(widget_2);
         widget_4->setObjectName(QString::fromUtf8("widget_4"));
         horizontalLayout_2 = new QHBoxLayout(widget_4);
         horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
-        horizontalSpacer = new QSpacerItem(58, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        horizontalSpacer_11 = new QSpacerItem(10, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
 
-        horizontalLayout_2->addItem(horizontalSpacer);
+        horizontalLayout_2->addItem(horizontalSpacer_11);
 
-        login_enter = new QToolButton(widget_4);
-        login_enter->setObjectName(QString::fromUtf8("login_enter"));
+        rember_pwd = new QCheckBox(widget_4);
+        rember_pwd->setObjectName(QString::fromUtf8("rember_pwd"));
+        QFont font3;
+        font3.setFamily(QString::fromUtf8("\345\271\274\345\234\206"));
+        font3.setPointSize(12);
+        font3.setBold(true);
+        font3.setWeight(75);
+        rember_pwd->setFont(font3);
 
-        horizontalLayout_2->addWidget(login_enter);
+        horizontalLayout_2->addWidget(rember_pwd);
 
-        horizontalSpacer_2 = new QSpacerItem(68, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        horizontalLayout_2->addItem(horizontalSpacer_2);
+        horizontalLayout_2->addItem(horizontalSpacer_3);
+
+        log_register_btn = new QToolButton(widget_4);
+        log_register_btn->setObjectName(QString::fromUtf8("log_register_btn"));
+        QFont font4;
+        font4.setFamily(QString::fromUtf8("\345\271\274\345\234\206"));
+        font4.setPointSize(12);
+        font4.setBold(true);
+        font4.setUnderline(true);
+        font4.setWeight(75);
+        font4.setStyleStrategy(QFont::PreferDefault);
+        log_register_btn->setFont(font4);
+        log_register_btn->setStyleSheet(QString::fromUtf8("color: rgb(255, 170, 0);"));
+        log_register_btn->setAutoRaise(true);
+
+        horizontalLayout_2->addWidget(log_register_btn);
+
+        horizontalSpacer_12 = new QSpacerItem(10, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
+
+        horizontalLayout_2->addItem(horizontalSpacer_12);
 
 
-        verticalLayout_3->addWidget(widget_4);
+        verticalLayout_2->addWidget(widget_4);
+
+        widget_5 = new QWidget(widget_2);
+        widget_5->setObjectName(QString::fromUtf8("widget_5"));
+        horizontalLayout = new QHBoxLayout(widget_5);
+        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
+        login_btn = new QToolButton(widget_5);
+        login_btn->setObjectName(QString::fromUtf8("login_btn"));
+        login_btn->setMinimumSize(QSize(200, 50));
+        QFont font5;
+        font5.setFamily(QString::fromUtf8("\346\226\260\345\256\213\344\275\223"));
+        font5.setPointSize(18);
+        font5.setBold(false);
+        font5.setItalic(false);
+        font5.setWeight(9);
+        login_btn->setFont(font5);
+        login_btn->setStyleSheet(QString::fromUtf8("border-image: url(:/images/balckButton.png);\n"
+"font: 75 18pt \"\346\226\260\345\256\213\344\275\223\";\n"
+"color: rgb(255, 255, 255);"));
+        login_btn->setAutoRaise(true);
+
+        horizontalLayout->addWidget(login_btn);
 
 
-        verticalLayout_4->addLayout(verticalLayout_3);
+        verticalLayout_2->addWidget(widget_5);
+
+        widget_8 = new QWidget(widget_2);
+        widget_8->setObjectName(QString::fromUtf8("widget_8"));
+        widget_8->setMinimumSize(QSize(0, 15));
+
+        verticalLayout_2->addWidget(widget_8);
 
 
-        verticalLayout_6->addWidget(widget);
+        horizontalLayout_3->addWidget(widget_2);
 
-        verticalSpacer_3 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+        horizontalSpacer_2 = new QSpacerItem(102, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        verticalLayout_6->addItem(verticalSpacer_3);
+        horizontalLayout_3->addItem(horizontalSpacer_2);
 
 
-        verticalLayout->addLayout(verticalLayout_6);
+        verticalLayout_3->addWidget(widget);
 
-        main_text->addWidget(login_page);
-        reg_page = new QWidget();
-        reg_page->setObjectName(QString::fromUtf8("reg_page"));
-        label_15 = new QLabel(reg_page);
-        label_15->setObjectName(QString::fromUtf8("label_15"));
-        label_15->setGeometry(QRect(140, 10, 151, 51));
-        QFont font;
-        font.setPointSize(26);
-        label_15->setFont(font);
-        widget_7 = new QWidget(reg_page);
-        widget_7->setObjectName(QString::fromUtf8("widget_7"));
-        widget_7->setGeometry(QRect(110, 60, 211, 168));
-        gridLayout_3 = new QGridLayout(widget_7);
-        gridLayout_3->setObjectName(QString::fromUtf8("gridLayout_3"));
-        label_16 = new QLabel(widget_7);
-        label_16->setObjectName(QString::fromUtf8("label_16"));
+        verticalSpacer_2 = new QSpacerItem(20, 34, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        gridLayout_3->addWidget(label_16, 0, 0, 1, 1);
+        verticalLayout_3->addItem(verticalSpacer_2);
 
-        reg_username = new QLineEdit(widget_7);
-        reg_username->setObjectName(QString::fromUtf8("reg_username"));
+        stackedWidget->addWidget(login_page);
+        register_page = new QWidget();
+        register_page->setObjectName(QString::fromUtf8("register_page"));
+        verticalLayout_5 = new QVBoxLayout(register_page);
+        verticalLayout_5->setObjectName(QString::fromUtf8("verticalLayout_5"));
+        verticalSpacer_5 = new QSpacerItem(20, 22, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        gridLayout_3->addWidget(reg_username, 0, 1, 1, 1);
+        verticalLayout_5->addItem(verticalSpacer_5);
 
-        label_17 = new QLabel(widget_7);
-        label_17->setObjectName(QString::fromUtf8("label_17"));
+        widget_9 = new QWidget(register_page);
+        widget_9->setObjectName(QString::fromUtf8("widget_9"));
+        horizontalLayout_5 = new QHBoxLayout(widget_9);
+        horizontalLayout_5->setObjectName(QString::fromUtf8("horizontalLayout_5"));
+        horizontalSpacer_5 = new QSpacerItem(119, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        gridLayout_3->addWidget(label_17, 1, 0, 1, 1);
+        horizontalLayout_5->addItem(horizontalSpacer_5);
 
-        reg_nickname = new QLineEdit(widget_7);
-        reg_nickname->setObjectName(QString::fromUtf8("reg_nickname"));
+        widget_10 = new QWidget(widget_9);
+        widget_10->setObjectName(QString::fromUtf8("widget_10"));
+        verticalLayout_4 = new QVBoxLayout(widget_10);
+        verticalLayout_4->setObjectName(QString::fromUtf8("verticalLayout_4"));
+        widget_11 = new QWidget(widget_10);
+        widget_11->setObjectName(QString::fromUtf8("widget_11"));
+        horizontalLayout_6 = new QHBoxLayout(widget_11);
+        horizontalLayout_6->setObjectName(QString::fromUtf8("horizontalLayout_6"));
+        label_4 = new QLabel(widget_11);
+        label_4->setObjectName(QString::fromUtf8("label_4"));
+        QFont font6;
+        font6.setFamily(QString::fromUtf8("\345\215\216\346\226\207\346\226\260\351\255\217"));
+        font6.setPointSize(26);
+        font6.setBold(true);
+        font6.setWeight(75);
+        label_4->setFont(font6);
+        label_4->setAlignment(Qt::AlignCenter);
 
-        gridLayout_3->addWidget(reg_nickname, 1, 1, 1, 1);
+        horizontalLayout_6->addWidget(label_4);
 
-        label_18 = new QLabel(widget_7);
-        label_18->setObjectName(QString::fromUtf8("label_18"));
 
-        gridLayout_3->addWidget(label_18, 2, 0, 1, 1);
+        verticalLayout_4->addWidget(widget_11);
 
-        reg_password = new QLineEdit(widget_7);
-        reg_password->setObjectName(QString::fromUtf8("reg_password"));
-        reg_password->setEchoMode(QLineEdit::PasswordEchoOnEdit);
+        widget_13 = new QWidget(widget_10);
+        widget_13->setObjectName(QString::fromUtf8("widget_13"));
+        gridLayout_2 = new QGridLayout(widget_13);
+        gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
+        label_10 = new QLabel(widget_13);
+        label_10->setObjectName(QString::fromUtf8("label_10"));
 
-        gridLayout_3->addWidget(reg_password, 2, 1, 1, 1);
+        gridLayout_2->addWidget(label_10, 5, 0, 1, 1);
 
-        label_19 = new QLabel(widget_7);
-        label_19->setObjectName(QString::fromUtf8("label_19"));
+        label_9 = new QLabel(widget_13);
+        label_9->setObjectName(QString::fromUtf8("label_9"));
 
-        gridLayout_3->addWidget(label_19, 3, 0, 1, 1);
+        gridLayout_2->addWidget(label_9, 4, 0, 1, 1);
 
-        reg_password_enter = new QLineEdit(widget_7);
-        reg_password_enter->setObjectName(QString::fromUtf8("reg_password_enter"));
-        reg_password_enter->setEchoMode(QLineEdit::PasswordEchoOnEdit);
-
-        gridLayout_3->addWidget(reg_password_enter, 3, 1, 1, 1);
-
-        label_20 = new QLabel(widget_7);
-        label_20->setObjectName(QString::fromUtf8("label_20"));
-
-        gridLayout_3->addWidget(label_20, 4, 0, 1, 1);
-
-        reg_phone = new QLineEdit(widget_7);
+        reg_phone = new QLineEdit(widget_13);
         reg_phone->setObjectName(QString::fromUtf8("reg_phone"));
+        reg_phone->setMinimumSize(QSize(0, 25));
+        QFont font7;
+        font7.setFamily(QString::fromUtf8("\345\256\213\344\275\223"));
+        reg_phone->setFont(font7);
+        reg_phone->setAlignment(Qt::AlignCenter);
 
-        gridLayout_3->addWidget(reg_phone, 4, 1, 1, 1);
+        gridLayout_2->addWidget(reg_phone, 4, 2, 1, 1);
 
-        label_21 = new QLabel(widget_7);
-        label_21->setObjectName(QString::fromUtf8("label_21"));
+        reg_surepwd = new QLineEdit(widget_13);
+        reg_surepwd->setObjectName(QString::fromUtf8("reg_surepwd"));
+        reg_surepwd->setMinimumSize(QSize(0, 25));
+        reg_surepwd->setFont(font7);
+        reg_surepwd->setEchoMode(QLineEdit::Password);
+        reg_surepwd->setAlignment(Qt::AlignCenter);
 
-        gridLayout_3->addWidget(label_21, 5, 0, 1, 1);
+        gridLayout_2->addWidget(reg_surepwd, 3, 2, 1, 1);
 
-        reg_mail = new QLineEdit(widget_7);
+        label_8 = new QLabel(widget_13);
+        label_8->setObjectName(QString::fromUtf8("label_8"));
+
+        gridLayout_2->addWidget(label_8, 3, 0, 1, 1);
+
+        reg_mail = new QLineEdit(widget_13);
         reg_mail->setObjectName(QString::fromUtf8("reg_mail"));
+        reg_mail->setMinimumSize(QSize(0, 25));
+        reg_mail->setFont(font7);
+        reg_mail->setAlignment(Qt::AlignCenter);
 
-        gridLayout_3->addWidget(reg_mail, 5, 1, 1, 1);
+        gridLayout_2->addWidget(reg_mail, 5, 2, 1, 1);
 
-        layoutWidget = new QWidget(reg_page);
-        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
-        layoutWidget->setGeometry(QRect(120, 250, 204, 25));
-        horizontalLayout_3 = new QHBoxLayout(layoutWidget);
-        horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
-        horizontalLayout_3->setContentsMargins(0, 0, 0, 0);
-        reg_register = new QPushButton(layoutWidget);
-        reg_register->setObjectName(QString::fromUtf8("reg_register"));
+        label_5 = new QLabel(widget_13);
+        label_5->setObjectName(QString::fromUtf8("label_5"));
 
-        horizontalLayout_3->addWidget(reg_register);
+        gridLayout_2->addWidget(label_5, 0, 0, 1, 1);
 
-        horizontalSpacer_4 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        label_7 = new QLabel(widget_13);
+        label_7->setObjectName(QString::fromUtf8("label_7"));
 
-        horizontalLayout_3->addItem(horizontalSpacer_4);
+        gridLayout_2->addWidget(label_7, 2, 0, 1, 1);
 
-        reg_back_main = new QPushButton(layoutWidget);
-        reg_back_main->setObjectName(QString::fromUtf8("reg_back_main"));
+        reg_nickname = new QLineEdit(widget_13);
+        reg_nickname->setObjectName(QString::fromUtf8("reg_nickname"));
+        reg_nickname->setMinimumSize(QSize(0, 25));
+        reg_nickname->setFont(font7);
+        reg_nickname->setAlignment(Qt::AlignCenter);
 
-        horizontalLayout_3->addWidget(reg_back_main);
+        gridLayout_2->addWidget(reg_nickname, 1, 2, 1, 1);
 
-        main_text->addWidget(reg_page);
+        reg_pwd = new QLineEdit(widget_13);
+        reg_pwd->setObjectName(QString::fromUtf8("reg_pwd"));
+        reg_pwd->setMinimumSize(QSize(0, 25));
+        reg_pwd->setFont(font7);
+        reg_pwd->setEchoMode(QLineEdit::Password);
+        reg_pwd->setAlignment(Qt::AlignCenter);
+
+        gridLayout_2->addWidget(reg_pwd, 2, 2, 1, 1);
+
+        label_6 = new QLabel(widget_13);
+        label_6->setObjectName(QString::fromUtf8("label_6"));
+
+        gridLayout_2->addWidget(label_6, 1, 0, 1, 1);
+
+        reg_usr = new QLineEdit(widget_13);
+        reg_usr->setObjectName(QString::fromUtf8("reg_usr"));
+        reg_usr->setMinimumSize(QSize(0, 25));
+        reg_usr->setFont(font7);
+        reg_usr->setAlignment(Qt::AlignCenter);
+
+        gridLayout_2->addWidget(reg_usr, 0, 2, 1, 1);
+
+        horizontalSpacer_6 = new QSpacerItem(15, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
+
+        gridLayout_2->addItem(horizontalSpacer_6, 0, 1, 1, 1);
+
+
+        verticalLayout_4->addWidget(widget_13);
+
+        widget_15 = new QWidget(widget_10);
+        widget_15->setObjectName(QString::fromUtf8("widget_15"));
+        horizontalLayout_8 = new QHBoxLayout(widget_15);
+        horizontalLayout_8->setObjectName(QString::fromUtf8("horizontalLayout_8"));
+        register_btn = new QToolButton(widget_15);
+        register_btn->setObjectName(QString::fromUtf8("register_btn"));
+        register_btn->setMinimumSize(QSize(200, 50));
+        register_btn->setStyleSheet(QString::fromUtf8("border-image: url(:/images/balckButton.png);\n"
+"font: 75 18pt \"\346\226\260\345\256\213\344\275\223\";\n"
+"color: rgb(255, 255, 255);"));
+        register_btn->setAutoRaise(true);
+
+        horizontalLayout_8->addWidget(register_btn);
+
+
+        verticalLayout_4->addWidget(widget_15);
+
+        widget_16 = new QWidget(widget_10);
+        widget_16->setObjectName(QString::fromUtf8("widget_16"));
+        widget_16->setMinimumSize(QSize(0, 15));
+
+        verticalLayout_4->addWidget(widget_16);
+
+
+        horizontalLayout_5->addWidget(widget_10);
+
+        horizontalSpacer_8 = new QSpacerItem(118, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_5->addItem(horizontalSpacer_8);
+
+
+        verticalLayout_5->addWidget(widget_9);
+
+        verticalSpacer_4 = new QSpacerItem(20, 24, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout_5->addItem(verticalSpacer_4);
+
+        stackedWidget->addWidget(register_page);
         set_page = new QWidget();
         set_page->setObjectName(QString::fromUtf8("set_page"));
-        label_48 = new QLabel(set_page);
-        label_48->setObjectName(QString::fromUtf8("label_48"));
-        label_48->setGeometry(QRect(60, 0, 261, 91));
-        label_48->setFont(font);
-        widget_8 = new QWidget(set_page);
-        widget_8->setObjectName(QString::fromUtf8("widget_8"));
-        widget_8->setGeometry(QRect(10, 70, 331, 91));
-        layoutWidget_4 = new QWidget(widget_8);
-        layoutWidget_4->setObjectName(QString::fromUtf8("layoutWidget_4"));
-        layoutWidget_4->setGeometry(QRect(100, 20, 207, 48));
-        formLayout_4 = new QFormLayout(layoutWidget_4);
-        formLayout_4->setObjectName(QString::fromUtf8("formLayout_4"));
-        formLayout_4->setContentsMargins(0, 0, 0, 0);
-        label_49 = new QLabel(layoutWidget_4);
-        label_49->setObjectName(QString::fromUtf8("label_49"));
+        widget_12 = new QWidget(set_page);
+        widget_12->setObjectName(QString::fromUtf8("widget_12"));
+        widget_12->setGeometry(QRect(31, 31, 622, 388));
+        horizontalLayout_7 = new QHBoxLayout(widget_12);
+        horizontalLayout_7->setObjectName(QString::fromUtf8("horizontalLayout_7"));
+        horizontalSpacer_7 = new QSpacerItem(119, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        formLayout_4->setWidget(0, QFormLayout::LabelRole, label_49);
+        horizontalLayout_7->addItem(horizontalSpacer_7);
 
-        setting_host_ip = new QLineEdit(layoutWidget_4);
-        setting_host_ip->setObjectName(QString::fromUtf8("setting_host_ip"));
+        widget_14 = new QWidget(widget_12);
+        widget_14->setObjectName(QString::fromUtf8("widget_14"));
+        verticalLayout_6 = new QVBoxLayout(widget_14);
+        verticalLayout_6->setObjectName(QString::fromUtf8("verticalLayout_6"));
+        widget_17 = new QWidget(widget_14);
+        widget_17->setObjectName(QString::fromUtf8("widget_17"));
+        horizontalLayout_9 = new QHBoxLayout(widget_17);
+        horizontalLayout_9->setObjectName(QString::fromUtf8("horizontalLayout_9"));
+        label_11 = new QLabel(widget_17);
+        label_11->setObjectName(QString::fromUtf8("label_11"));
+        label_11->setFont(font6);
+        label_11->setAlignment(Qt::AlignCenter);
 
-        formLayout_4->setWidget(0, QFormLayout::FieldRole, setting_host_ip);
-
-        label_50 = new QLabel(layoutWidget_4);
-        label_50->setObjectName(QString::fromUtf8("label_50"));
-
-        formLayout_4->setWidget(1, QFormLayout::LabelRole, label_50);
-
-        setting_host_port = new QLineEdit(layoutWidget_4);
-        setting_host_port->setObjectName(QString::fromUtf8("setting_host_port"));
-
-        formLayout_4->setWidget(1, QFormLayout::FieldRole, setting_host_port);
-
-        setting_back_main = new QPushButton(set_page);
-        setting_back_main->setObjectName(QString::fromUtf8("setting_back_main"));
-        setting_back_main->setGeometry(QRect(110, 200, 75, 23));
-        setting_enter = new QPushButton(set_page);
-        setting_enter->setObjectName(QString::fromUtf8("setting_enter"));
-        setting_enter->setGeometry(QRect(220, 200, 75, 23));
-        main_text->addWidget(set_page);
-        title_wg = new title(login);
-        title_wg->setObjectName(QString::fromUtf8("title_wg"));
-        title_wg->setGeometry(QRect(10, 20, 621, 41));
-
-        retranslateUi(login);
-
-        main_text->setCurrentIndex(0);
+        horizontalLayout_9->addWidget(label_11);
 
 
-        QMetaObject::connectSlotsByName(login);
+        verticalLayout_6->addWidget(widget_17);
+
+        widget_18 = new QWidget(widget_14);
+        widget_18->setObjectName(QString::fromUtf8("widget_18"));
+        gridLayout_3 = new QGridLayout(widget_18);
+        gridLayout_3->setObjectName(QString::fromUtf8("gridLayout_3"));
+        horizontalSpacer_9 = new QSpacerItem(20, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
+
+        gridLayout_3->addItem(horizontalSpacer_9, 0, 1, 1, 1);
+
+        address_server = new QLineEdit(widget_18);
+        address_server->setObjectName(QString::fromUtf8("address_server"));
+        address_server->setMinimumSize(QSize(0, 25));
+        address_server->setFont(font7);
+        address_server->setAlignment(Qt::AlignCenter);
+
+        gridLayout_3->addWidget(address_server, 0, 2, 1, 1);
+
+        label_15 = new QLabel(widget_18);
+        label_15->setObjectName(QString::fromUtf8("label_15"));
+
+        gridLayout_3->addWidget(label_15, 0, 0, 1, 1);
+
+        port_server = new QLineEdit(widget_18);
+        port_server->setObjectName(QString::fromUtf8("port_server"));
+        port_server->setMinimumSize(QSize(0, 25));
+        port_server->setFont(font7);
+        port_server->setAlignment(Qt::AlignCenter);
+
+        gridLayout_3->addWidget(port_server, 2, 2, 1, 1);
+
+        label_17 = new QLabel(widget_18);
+        label_17->setObjectName(QString::fromUtf8("label_17"));
+
+        gridLayout_3->addWidget(label_17, 2, 0, 1, 1);
+
+        verticalSpacer_8 = new QSpacerItem(20, 25, QSizePolicy::Minimum, QSizePolicy::Fixed);
+
+        gridLayout_3->addItem(verticalSpacer_8, 1, 0, 1, 1);
+
+
+        verticalLayout_6->addWidget(widget_18);
+
+        widget_19 = new QWidget(widget_14);
+        widget_19->setObjectName(QString::fromUtf8("widget_19"));
+        horizontalLayout_10 = new QHBoxLayout(widget_19);
+        horizontalLayout_10->setObjectName(QString::fromUtf8("horizontalLayout_10"));
+        set_ok_btn = new QToolButton(widget_19);
+        set_ok_btn->setObjectName(QString::fromUtf8("set_ok_btn"));
+        set_ok_btn->setMinimumSize(QSize(200, 50));
+        set_ok_btn->setStyleSheet(QString::fromUtf8("border-image: url(:/images/balckButton.png);\n"
+"font: 75 18pt \"\346\226\260\345\256\213\344\275\223\";\n"
+"color: rgb(255, 255, 255);"));
+        set_ok_btn->setAutoRaise(true);
+
+        horizontalLayout_10->addWidget(set_ok_btn);
+
+
+        verticalLayout_6->addWidget(widget_19);
+
+        widget_20 = new QWidget(widget_14);
+        widget_20->setObjectName(QString::fromUtf8("widget_20"));
+        widget_20->setMaximumSize(QSize(16777215, 20));
+
+        verticalLayout_6->addWidget(widget_20);
+
+
+        horizontalLayout_7->addWidget(widget_14);
+
+        horizontalSpacer_10 = new QSpacerItem(118, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_7->addItem(horizontalSpacer_10);
+
+        stackedWidget->addWidget(set_page);
+
+        verticalLayout->addWidget(stackedWidget);
+
+#ifndef QT_NO_SHORTCUT
+        label_2->setBuddy(log_pwd);
+        label->setBuddy(log_usr);
+#endif // QT_NO_SHORTCUT
+        QWidget::setTabOrder(log_usr, log_pwd);
+        QWidget::setTabOrder(log_pwd, rember_pwd);
+        QWidget::setTabOrder(rember_pwd, log_register_btn);
+        QWidget::setTabOrder(log_register_btn, login_btn);
+        QWidget::setTabOrder(login_btn, reg_usr);
+        QWidget::setTabOrder(reg_usr, reg_nickname);
+        QWidget::setTabOrder(reg_nickname, reg_pwd);
+        QWidget::setTabOrder(reg_pwd, reg_surepwd);
+        QWidget::setTabOrder(reg_surepwd, reg_phone);
+        QWidget::setTabOrder(reg_phone, reg_mail);
+        QWidget::setTabOrder(reg_mail, register_btn);
+        QWidget::setTabOrder(register_btn, address_server);
+        QWidget::setTabOrder(address_server, port_server);
+        QWidget::setTabOrder(port_server, set_ok_btn);
+
+        retranslateUi(Login);
+
+        stackedWidget->setCurrentIndex(0);
+
+
+        QMetaObject::connectSlotsByName(Login);
     } // setupUi
 
-    void retranslateUi(QDialog *login)
+    void retranslateUi(QDialog *Login)
     {
-        login->setWindowTitle(QApplication::translate("login", "Dialog", nullptr));
-        password->setText(QApplication::translate("login", "\345\257\206\347\240\201\357\274\232", nullptr));
-        username->setText(QApplication::translate("login", "\347\224\250\346\210\267\345\220\215\357\274\232", nullptr));
-        login_title->setText(QApplication::translate("login", "\347\224\250\346\210\267\347\231\273\345\275\225", nullptr));
-        login_checkBox_rmpswd->setText(QApplication::translate("login", "\350\256\260\344\275\217\345\257\206\347\240\201", nullptr));
-        login_register->setText(QApplication::translate("login", "\346\262\241\346\234\211\350\264\246\345\217\267\357\274\237\347\253\213\345\215\263\346\263\250\345\206\214", nullptr));
-        login_enter->setText(QApplication::translate("login", "\347\231\273\345\275\225", nullptr));
-        label_15->setText(QApplication::translate("login", "\347\224\250\346\210\267\346\263\250\345\206\214", nullptr));
-        label_16->setText(QApplication::translate("login", "\347\224\250\346\210\267\345\220\215:", nullptr));
-        label_17->setText(QApplication::translate("login", "\346\230\265\347\247\260:", nullptr));
-        label_18->setText(QApplication::translate("login", "\345\257\206\347\240\201:", nullptr));
-        label_19->setText(QApplication::translate("login", "\347\241\256\350\256\244\345\257\206\347\240\201:", nullptr));
-        label_20->setText(QApplication::translate("login", "\346\211\213\346\234\272:", nullptr));
-        label_21->setText(QApplication::translate("login", "\351\202\256\347\256\261:", nullptr));
-        reg_register->setText(QApplication::translate("login", "\346\263\250\345\206\214", nullptr));
-        reg_back_main->setText(QApplication::translate("login", "\350\277\224\345\233\236", nullptr));
-        label_48->setText(QApplication::translate("login", "\346\234\215\345\212\241\345\231\250\350\256\276\347\275\256", nullptr));
-        label_49->setText(QApplication::translate("login", "\346\234\215\345\212\241\345\231\250\345\234\260\345\235\200:", nullptr));
-        setting_host_ip->setText(QApplication::translate("login", "192.168.58.133", nullptr));
-        label_50->setText(QApplication::translate("login", "\346\234\215\345\212\241\345\231\250\347\253\257\345\217\243:", nullptr));
-        setting_host_port->setText(QApplication::translate("login", "80", nullptr));
-        setting_back_main->setText(QApplication::translate("login", "\350\277\224\345\233\236", nullptr));
-        setting_enter->setText(QApplication::translate("login", "\347\241\256\345\256\232", nullptr));
+        Login->setWindowTitle(QApplication::translate("Login", "Dialog", nullptr));
+        label_3->setText(QApplication::translate("Login", "\347\224\250\346\210\267\347\231\273\345\275\225", nullptr));
+        label_2->setText(QApplication::translate("Login", "\345\257\206\347\240\201:", nullptr));
+        label->setText(QApplication::translate("Login", "\347\224\250\346\210\267\345\220\215:", nullptr));
+        rember_pwd->setText(QApplication::translate("Login", "\350\256\260\344\275\217\345\257\206\347\240\201", nullptr));
+        log_register_btn->setText(QApplication::translate("Login", "\346\262\241\346\234\211\350\264\246\345\217\267,\351\251\254\344\270\212\346\263\250\345\206\214", nullptr));
+        login_btn->setText(QApplication::translate("Login", "\347\231\273\345\275\225", nullptr));
+        label_4->setText(QApplication::translate("Login", "\347\224\250\346\210\267\346\263\250\345\206\214", nullptr));
+        label_10->setText(QApplication::translate("Login", "\351\202\256  \347\256\261\357\274\232", nullptr));
+        label_9->setText(QApplication::translate("Login", "\346\211\213  \346\234\272\357\274\232", nullptr));
+        label_8->setText(QApplication::translate("Login", "\347\241\256\345\256\232\345\257\206\347\240\201\357\274\232", nullptr));
+        label_5->setText(QApplication::translate("Login", "\347\224\250\346\210\267\345\220\215\357\274\232", nullptr));
+        label_7->setText(QApplication::translate("Login", "\345\257\206  \347\240\201\357\274\232", nullptr));
+        label_6->setText(QApplication::translate("Login", "\346\230\265  \347\247\260\357\274\232", nullptr));
+        register_btn->setText(QApplication::translate("Login", "\346\263\250\345\206\214", nullptr));
+        label_11->setText(QApplication::translate("Login", "\346\234\215\345\212\241\345\231\250\350\256\276\347\275\256", nullptr));
+        label_15->setText(QApplication::translate("Login", "\346\234\215\345\212\241\345\231\250\345\234\260\345\235\200:", nullptr));
+        label_17->setText(QApplication::translate("Login", "\346\234\215\345\212\241\345\231\250\347\253\257\345\217\243:", nullptr));
+        set_ok_btn->setText(QApplication::translate("Login", "\347\241\256\345\256\232", nullptr));
     } // retranslateUi
 
 };
 
 namespace Ui {
-    class login: public Ui_login {};
+    class Login: public Ui_Login {};
 } // namespace Ui
 
 QT_END_NAMESPACE

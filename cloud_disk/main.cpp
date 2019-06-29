@@ -1,12 +1,10 @@
 #include "cloud_disk.h"
 #include <QtWidgets/QApplication>
-#include "login.h"
 
 int main(int argc, char *argv[])
 {
 	QApplication a(argc, argv);
-    cloud_disk w;
-    //login w;
+	cloud_disk w;
 	w.show();
 	return a.exec();
 }

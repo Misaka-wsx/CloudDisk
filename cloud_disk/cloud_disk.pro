@@ -5,7 +5,7 @@
 TEMPLATE = app
 TARGET = cloud_disk
 DESTDIR = ./x64/Debug
-QT += core gui widgets network winextras
+QT += core gui widgets network
 CONFIG += debug
 DEFINES += _UNICODE _ENABLE_EXTENDED_ALIGNED_STORAGE WIN64 QT_DLL QT_WIDGETS_LIB
 INCLUDEPATH += ./GeneratedFiles \

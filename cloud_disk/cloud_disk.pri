@@ -7,22 +7,54 @@
 message("You are running qmake on a generated .pro file. This may not work!")
 
 
-HEADERS += ./common.h \
+HEADERS += ./global.h \
     ./cloud_disk.h \
     ./login.h \
-    ./title.h \
-    ./networkmanager.h \
-    ./config.h \
-    $$PWD/tools.h
-SOURCES += ./cloud_disk.cpp \
-    ./common.cpp \
+    ./mainwindow.h \
+    ./buttongroup.h \
+    ./common/common.h \
+    ./common/des.h \
+    ./common/downloadlayout.h \
+    ./common/downloadtask.h \
+    ./common/logininfoinstance.h \
+    ./common/uploadlayout.h \
+    ./common/uploadtask.h \
+    ./selfwidget/dataprogress.h \
+    ./selfwidget/filepropertyinfo.h \
+    ./selfwidget/mymenu.h \
+    ./selfwidget/titlewidget.h \
+    ./myfilewg.h \
+    ./rankinglist.h \
+    ./sharelist.h \
+    ./transfer.h
+SOURCES += ./main.cpp \
+    ./cloud_disk.cpp \
     ./login.cpp \
-    ./main.cpp \
-    ./networkmanager.cpp \
-    ./title.cpp \
-    ./config.cpp \
-    $$PWD/tools.cpp
-FORMS += ./cloud_disk.ui \
-    ./login.ui \
-    ./title.ui
+    ./buttongroup.cpp \
+    ./common/common.cpp \
+    ./common/des.c \
+    ./common/downloadlayout.cpp \
+    ./common/downloadtask.cpp \
+    ./common/logininfoinstance.cpp \
+    ./common/uploadlayout.cpp \
+    ./common/uploadtask.cpp \
+    ./selfwidget/dataprogress.cpp \
+    ./selfwidget/filepropertyinfo.cpp \
+    ./selfwidget/mymenu.cpp \
+    ./selfwidget/titlewidget.cpp \
+    ./mainwindow.cpp \
+    ./myfilewg.cpp \
+    ./rankinglist.cpp \
+    ./sharelist.cpp \
+    ./transfer.cpp
+FORMS += ./login.ui \
+    ./buttongroup.ui \
+    ./selfwidget/dataprogress.ui \
+    ./selfwidget/filepropertyinfo.ui \
+    ./selfwidget/titlewidget.ui \
+    ./mainwindow.ui \
+    ./myfilewg.ui \
+    ./rankinglist.ui \
+    ./sharelist.ui \
+    ./transfer.ui
 RESOURCES += cloud_disk.qrc

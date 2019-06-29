@@ -1,38 +1,15 @@
 #pragma once
 
-#include <QtWidgets/QWidget>
-#include <QMainWindow>
+#include <QtWidgets/QMainWindow>
 #include "ui_cloud_disk.h"
-#include "login.h"
-#include <QFileDialog>
-#include "tools.h"
+
 class cloud_disk : public QMainWindow
 {
 	Q_OBJECT
 
 public:
-    explicit cloud_disk(QWidget *parent = Q_NULLPTR);
-    ~cloud_disk();
-    void set_config(Config *temp_config);
-
-private slots:
-    void onMyFilesClicked();
-    void uploadButton();
-    void on_switch_user_clicked();
-
-    void on_minmize_clicked();
-
-    void on_maxmize_clicked();
-
-    void on_close_window_clicked();
+	cloud_disk(QWidget *parent = Q_NULLPTR);
 
 private:
-    Ui::cloud_disk *ui;
-    void checkFileMd5(QString filename,QString fileMd5String);
-    void uploadFile(QString filename);
-    void flushTable(QJsonDocument json);
-    void addUploadButton();
-private:
-    QNetworkAccessManager *netManger;
-    Config *config;
+	Ui::cloud_diskClass ui;
 };
